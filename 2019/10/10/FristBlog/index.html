@@ -144,12 +144,20 @@
 安装成功!!!<br><a href="https://blog.csdn.net/huangqqdy/article/details/83032408" target="_blank" rel="noopener">安装详情可以参考这篇文章</a></li>
 </ul>
 <hr>
-<p>-注册Github账号<br> <a href="https://github.com/" target="_blank" rel="noopener">Github官网</a>  国内可能打开有点慢<br> 注册完成后右上角个人信息展开有一个 <em>+</em>New repository 新建仓库<br>  Repository name * 填写<a href>你的Github用户名.github.io</a>,这里<a href>.github.io</a> 前面如果是你的用户名Github会自动识别生成一个静态页面也就是以后我们博客的页面，<strong><em>但是你也可以选择你喜欢的名字填进去，之后在Settings里面手动创建Github Pages,点击Setting往下翻到GitHub Pages点击choose theme随便选个样式确定就行</em></strong><br> -生成SSH<br> <img src="/2019/10/10/FristBlog/gitp2.png"><br> 点击GitBash<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br> yourname:填个你喜欢的名字  </p>
-<p> youremail:填你自己的邮箱（可以和github的不一样）  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>注册Github账号<br><a href="https://github.com/" target="_blank" rel="noopener">Github官网</a>  国内可能打开有点慢<br>注册完成后右上角个人信息展开有一个 <em>+</em>New repository 新建仓库<br>Repository name * 填写<a href>你的Github用户名.github.io</a>,这里<a href>.github.io</a> 前面如果是你的用户名Github会自动识别生成一个静态页面也就是以后我们博客的页面，<strong><em>但是你也可以选择你喜欢的名字填进去，之后在Settings里面手动创建Github Pages,点击Setting往下翻到GitHub Pages点击choose theme随便选个样式确定就行</em></strong></p>
+<ul>
+<li>生成SSH<img src="/2019/10/10/FristBlog/gitp2.png">
+点击GitBash<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+yourname:填个你喜欢的名字  </li>
+</ul>
+<p>youremail:填你自己的邮箱（可以和github的不一样）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config -l</span><br></pre></td></tr></table></figure>
 <p>确认下信息是否正确<br>出现<code>END</code>按wq退出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-<p>  中间有设密码的环节不过密码可以为空，一直按回车就行  </p>
+<p>中间有设密码的环节不过密码可以为空，一直按回车就行  </p>
+</li>
+</ul>
 <p> 需要将自己电脑生成的SSH的公钥给GitHub<br> 所以找到.shh的文件夹（生成ssh后会自动生成这个文件夹）用记事本打开<code>id_rsa.pub</code>，复制。<br> 回到GitHub右上角个人信息点击Setting（与之前的GitHub pages的Setting不是同一个）,找到SSH Keys(SSH and GPG keys)点击New SSH key将<code>id_rsa.pub</code>内容复制到Key里面，点击Add SSH key</p>
 <p> 输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
