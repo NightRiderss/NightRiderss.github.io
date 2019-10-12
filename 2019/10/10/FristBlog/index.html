@@ -164,6 +164,39 @@ yourname:填个你喜欢的名字  </li>
 <p> 输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>出现success说明成功</p>
+<ul>
+<li>安装Hexo<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//安装Hexo</span><br><span class="line"> npm install hexo -g</span><br><span class="line">//推荐新手安装这个</span><br><span class="line"> npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化Hexo<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//存放blog项目的文件夹(路径一定要存在，没有就自己建)</span><br><span class="line">  CD d:/不是中文的名字</span><br><span class="line"> //新建Hexo项目(myblog随便取名字)</span><br><span class="line">  hexo init myblog</span><br></pre></td></tr></table></figure>
+本地搭建成功接下来看看效果怎么样</li>
+<li>预览<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 进入文件夹</span><br><span class="line">cd myblog</span><br><span class="line">//生成静态文件</span><br><span class="line">hexo g</span><br><span class="line">//启动本地服务器</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="部署Git"><a href="#部署Git" class="headerlink" title="部署Git"></a>部署Git</h1><p> 现在本地已经可以看到自己的博客了，接下来部署到git上就可以然所有人都看见了</p>
+<p>   打开文件夹 <code>d:/不是中文的名字/myblog</code> 找到<code>_config.yml</code>打开后翻到最下面<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></p>
+<p>  然后这时需要一份插件来部署到Github<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>OK 最后部署到GitHub上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p><code>hexo clean</code>清理之前生成的东西合一不加<br><code>hexo g</code> 生成静态文章<code>hexo generate</code>缩写<br><code>hexo d</code> 部署上传<code>hexo deploy</code>缩写<br>第一次部署可能要输入Github的账号和密码<br>成功部署过一会就可以查看<code>http://yourname.github.io</code></p>
+<h1 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h1><p>嫌弃<code>http://yourname.github.io</code>不好看？<br>上<a href="https://wanwang.aliyun.com" target="_blank" rel="noopener">阿里云</a>购买个喜欢的域名，一般新域名都要花时间进行DNS解析，.com2小时以内，cn24小时以内，其他的域名48小时内<br>看个人喜好每款价格都不一样。<br>   点击控制台→域名<br>   可以看见刚买的域名 点击<em>解析</em><br>   解析设置 <code>添加记录</code></p>
+<blockquote>
+<p>记录类型：CNAME  </p>
+<p>主机记录：@ 或者 www  </p>
+<p>解析路线：默认   </p>
+<p>记录值：yourname.github.io  </p>
+<p>TTL：1天</p>
+</blockquote>
+<p>需要实名认证说是3-5个工作日其实半天可能就通过了</p>
+</li>
+</ul>
+<p>回到GitHub Settings <code>GitHub Pages</code><br>将<code>Custom domain</code>中填入你刚买的域名 然后<code>Save</code></p>
+<p>等待域名的DNS解析完毕<br>然后你就可以通过你设置的域名访问了</p>
+<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post wodeboke</span><br></pre></td></tr></table></figure>
+<p> <code>post</code>属于布局方式除了<code>post</code>还有<code>draft</code>，<code>page</code><br> 具体写法<a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">可以参考这里</a><br> 再就是用的是Markdown语言<br>可以使用<a href="https://www.mdeditor.com/" target="_blank" rel="noopener">这个先写好在发布</a></p>
 
     </div>
 
